@@ -5,6 +5,8 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
+var worldMiniMap = L.control.worldMiniMap({position: 'bottomleft', style: {opacity: 0.9, borderRadius: '0px', backgroundColor: 'lightblue'}}).addTo(map);
+
 var markers = L.markerClusterGroup();
 markers.addLayer(
   L.marker([-6.22458376272189, 106.80391059934134]).bindPopup(
