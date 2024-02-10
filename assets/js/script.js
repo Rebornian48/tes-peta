@@ -1,9 +1,4 @@
 var map = L.map("map").setView([-3, 118], 5);
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 19,
-  attribution:
-    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-}).addTo(map);
 
 var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
@@ -43,25 +38,11 @@ var googleSat = L.tileLayer(
 );
 googleSat.addTo(map);
 
-var Stamen_Watercolor = L.tileLayer(
-  "https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}",
-  {
-    attribution:
-      'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    subdomains: "abcd",
-    minZoom: 1,
-    maxZoom: 16,
-    ext: "jpg",
-  }
-);
-Stamen_Watercolor.addTo(map);
-
 var baseLayers = {
   Satellite: googleSat,
   "Google Map": googleStreets,
-  "Water Color": Stamen_Watercolor,
-  OpenStreetMap: osm,
   "Dark Matter": CartoDB_DarkMatter,
+  OpenStreetMap: osm,
 };
 
 L.control.layers(baseLayers).addTo(map);
@@ -94,9 +75,37 @@ var teaterSurabaya = L.marker([
   "<b>Lokasi JKT48 Theater Sementara:</b> Taman Budaya Genteng Cak Durasim, Surabaya<br /><b>Tanggal: </b>17 Juli - 4 Agustus 2016"
 );
 
-var markers = L.markerClusterGroup();
-markers.addLayer(teaterfX);
-markers.addLayer(teaterKuningan);
-markers.addLayer(teaterPasaraya);
-markers.addLayer(teaterSurabaya);
-map.addLayer(markers);
+var teaters = L.markerClusterGroup();
+teaters.addLayer(teaterfX);
+teaters.addLayer(teaterKuningan);
+teaters.addLayer(teaterPasaraya);
+teaters.addLayer(teaterSurabaya);
+map.addLayer(teaters);
+
+var konser1 = "";
+var konser2 = "";
+var konser3 = "";
+var konser4 = "";
+var konser5 = "";
+var konser6 = "";
+var konser7 = "";
+var konser8 = "";
+var konser9 = "";
+var konser10 = "";
+var konser11 = "";
+var konser12 = "";
+
+var konser = L.markerClusterGroup();
+konser.addLayer(konser1);
+konser.addLayer(konser2);
+konser.addLayer(konser3);
+konser.addLayer(konser4);
+konser.addLayer(konser5);
+konser.addLayer(konser6);
+konser.addLayer(konser7);
+konser.addLayer(konser8);
+konser.addLayer(konser9);
+konser.addLayer(konser10);
+konser.addLayer(konser11);
+konser.addLayer(konser12);
+map.addLayer(konser);
